@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v=2">
+<link rel="stylesheet" href="assets/css/site.css?v=3">
 </head>
 <body>
 
@@ -68,129 +68,83 @@
         <h2>できること</h2>
         <p class="section-lead">旅行・おでかけ・日常の場所管理を、もっとかんたんに。</p>
       </div>
-      <svg class="features-scene" viewBox="0 0 520 190" fill="none" aria-hidden="true">
-        <!-- 地面。左右の端と底を閉じた「島」の形にして、四角い帯に見えないようにする -->
-        <path d="M16 148C90 138 150 156 230 148s150-8 274-2v18q0 8-8 8H24q-8 0-8-8z" fill="#EFF7F1"/>
-        <path d="M16 162c84-8 154 6 234-2s150 2 270-2v6q0 8-8 8H24q-8 0-8-8z" fill="#E2F4E9"/>
-        <!-- 塔 -->
-        <path d="M300 26l22 124h-44z" fill="#CDE7D6"/>
-        <path d="M289 92h22M283 120h34" stroke="#A9D6BC" stroke-width="3" stroke-linecap="round"/>
-        <path d="M300 26V14" stroke="#A9D6BC" stroke-width="3" stroke-linecap="round"/>
-        <!-- 家 -->
-        <g fill="#FFFFFF" stroke="#BFD9C8" stroke-width="2.5" stroke-linejoin="round">
-          <path d="M62 122h34v28H62z"/><path d="M58 122l21-16 21 16"/>
-          <path d="M120 132h28v18h-28z"/><path d="M116 132l18-13 18 13"/>
-          <path d="M382 126h32v24h-32z"/><path d="M378 126l20-15 20 15"/>
-        </g>
-        <rect x="74" y="132" width="10" height="10" rx="1.5" fill="#E2F4E9"/>
-        <rect x="392" y="134" width="10" height="10" rx="1.5" fill="#E2F4E9"/>
-        <!-- 木 -->
-        <g stroke="#8FCBA6" stroke-width="3" stroke-linecap="round">
-          <path d="M180 152v-18M232 152v-22M348 152v-18M446 152v-20"/>
-        </g>
-        <circle cx="180" cy="126" r="15" fill="#A9D6BC"/>
-        <circle cx="232" cy="120" r="18" fill="#8FCBA6"/>
-        <circle cx="348" cy="126" r="14" fill="#A9D6BC"/>
-        <circle cx="446" cy="124" r="16" fill="#8FCBA6"/>
-        <!-- 道(手前の帯の上を走らせる) -->
-        <path d="M48 172c78-6 148 6 222-2s142 2 202-2" stroke="#CDE7D6" stroke-width="5"
-              stroke-linecap="round" stroke-dasharray="2 13"/>
-        <!-- ピン -->
-        <g stroke-width="3" fill="#fff">
-          <path d="M96 62c0 9-11 19-11 19S74 71 74 62a11 11 0 0122 0z" stroke="#067952"/>
-          <path d="M254 48c0 8-9.5 17-9.5 17S235 56 235 48a9.5 9.5 0 0119 0z" stroke="#5E7E8C"/>
-          <path d="M432 70c0 8-9.5 17-9.5 17S413 78 413 70a9.5 9.5 0 0119 0z" stroke="#A98B57"/>
-        </g>
-        <circle cx="85" cy="62" r="4" fill="#39C266"/>
-        <circle cx="244.5" cy="48" r="3.5" fill="#5E7E8C"/>
-        <circle cx="422.5" cy="70" r="3.5" fill="#A98B57"/>
-      </svg>
+      <!-- 保存 → 取り込み → 整理 → 活用 の流れ。
+           矢印は li + li の疑似要素で描くので、読み上げには 4 ステップだけが並ぶ。 -->
+      <ol class="flow">
+        <li>
+          <div class="flow-inner">
+            <span class="flow-art"><img src="assets/img/features/flow-01-savedlist.png" alt="" width="76" height="67" loading="lazy"></span>
+            <span class="flow-label">保存リスト</span>
+          </div>
+        </li>
+        <li>
+          <div class="flow-inner">
+            <span class="flow-art"><img src="assets/img/features/flow-02-import.png" alt="" width="77" height="86" loading="lazy"></span>
+            <span class="flow-label">取り込み</span>
+          </div>
+        </li>
+        <li>
+          <div class="flow-inner">
+            <span class="flow-art"><img src="assets/img/features/flow-03-organize.png" alt="" width="85" height="82" loading="lazy"></span>
+            <span class="flow-label">自動で整理</span>
+          </div>
+        </li>
+        <li>
+          <div class="flow-inner">
+            <span class="flow-art"><img src="assets/img/features/flow-04-share.png" alt="" width="108" height="98" loading="lazy"></span>
+            <span class="flow-label">活用・共有</span>
+          </div>
+        </li>
+      </ol>
     </div>
 
     <div class="features">
       <a class="feature feature-link" href="guide/">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <rect x="10" y="40" width="52" height="22" rx="6" fill="#E2F4E9"/>
-            <path d="M10 46v10a6 6 0 006 6h40a6 6 0 006-6V46" stroke="#212429" stroke-width="3" stroke-linecap="round"/>
-            <path d="M36 10v26" stroke="#067952" stroke-width="3.5" stroke-linecap="round"/>
-            <path d="M26 27l10 10 10-10" stroke="#067952" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="17" cy="18" r="4" fill="#88E7A7"/>
-            <circle cx="56" cy="24" r="3" fill="#5E7E8C"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-import.png" alt="" width="203" height="118" loading="lazy"></div>
+          <h3>まとめてインポート</h3>
         </div>
-        <h3>まとめてインポート</h3>
         <p>Google マップの保存リストを書き出したファイルを取り込めます。何百件でも一度に。共有シートからファイルを直接受け取ることもできます。</p>
         <span class="more">取り込みガイドを見る →</span>
       </a>
 
       <div class="feature">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <path d="M8 22a5 5 0 015-5h13l6 7h27a5 5 0 015 5v25a5 5 0 01-5 5H13a5 5 0 01-5-5z" fill="#E2F4E9"/>
-            <path d="M8 22a5 5 0 015-5h13l6 7h27a5 5 0 015 5v25a5 5 0 01-5 5H13a5 5 0 01-5-5z" stroke="#212429" stroke-width="3" stroke-linejoin="round"/>
-            <path d="M22 44h12M22 52h20" stroke="#067952" stroke-width="3" stroke-linecap="round"/>
-            <path d="M54 8l2.2 5.8L62 16l-5.8 2.2L54 24l-2.2-5.8L46 16l5.8-2.2z" fill="#39C266"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-organize.png" alt="" width="135" height="106" loading="lazy"></div>
+          <h3>自動で整理される</h3>
         </div>
-        <h3>自動で整理される</h3>
         <p>位置と住所を調べて、都道府県・国ごとの地域分けからジャンルのタグ付けまで自動で。フォルダ分けの手作業は要りません。</p>
       </div>
 
       <div class="feature">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <path d="M40 12h18a4 4 0 014 4v18L38 54 20 36z" fill="#E2F4E9"/>
-            <path d="M34 20h18a4 4 0 014 4v18L36 62 14 40z" fill="#fff" stroke="#212429" stroke-width="3" stroke-linejoin="round"/>
-            <circle cx="46" cy="30" r="4.5" fill="#7E4F5C"/>
-            <path d="M40 12h18a4 4 0 014 4v18" stroke="#067952" stroke-width="3" stroke-linecap="round"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-tags.png" alt="" width="228" height="74" loading="lazy"></div>
+          <h3>タグとリストで自分の基準に</h3>
         </div>
-        <h3>タグとリストで自分の基準に</h3>
         <p>「カフェ」「絶景・撮影」「子連れOK」など自由に作れます。色分けとアイコンで見分けもすぐ。ワンタップで絞り込めます。</p>
       </div>
 
       <div class="feature">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <rect x="8" y="12" width="34" height="42" rx="5" fill="#E2F4E9"/>
-            <path d="M16 24h18M16 33h14M16 42h9" stroke="#067952" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="45" cy="41" r="15" fill="#fff" stroke="#212429" stroke-width="3"/>
-            <path d="M56 52l9 9" stroke="#212429" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="45" cy="41" r="6" fill="#88E7A7"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-search.png" alt="" width="182" height="101" loading="lazy"></div>
+          <h3>増えても、すぐ見つかる</h3>
         </div>
-        <h3>増えても、すぐ見つかる</h3>
         <p>名前でもメモでも探せます。地域・タグ・リスト・状態を重ねて絞り込み、追加順・名前順・評価順に並べ替え。</p>
       </div>
 
       <div class="feature">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <rect x="12" y="12" width="48" height="48" rx="7" fill="#E2F4E9"/>
-            <rect x="12" y="12" width="48" height="48" rx="7" stroke="#212429" stroke-width="3"/>
-            <path d="M22 30l6 6 12-13" stroke="#067952" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 47h20" stroke="#A98B57" stroke-width="3.5" stroke-linecap="round"/>
-            <circle cx="50" cy="47" r="4" fill="#A98B57"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-visited.png" alt="" width="178" height="87" loading="lazy"></div>
+          <h3>行った / 行きたいの仕分け</h3>
         </div>
-        <h3>行った / 行きたいの仕分け</h3>
         <p>訪問日や評価、写真とメモも残せます。行った地域はスタンプで埋まっていきます。まとめて片づける一括編集も。</p>
       </div>
 
       <div class="feature">
-        <div class="art">
-          <svg viewBox="0 0 72 72" fill="none" aria-hidden="true">
-            <rect x="9" y="16" width="54" height="44" rx="6" fill="#E2F4E9"/>
-            <rect x="9" y="16" width="54" height="44" rx="6" stroke="#212429" stroke-width="3"/>
-            <path d="M9 28h54M23 10v10M49 10v10" stroke="#212429" stroke-width="3" stroke-linecap="round"/>
-            <path d="M21 50c8 0 6-12 15-12s8 10 15 10" stroke="#067952" stroke-width="3"
-                  stroke-linecap="round" stroke-dasharray="1 7"/>
-            <circle cx="21" cy="50" r="4" fill="#39C266"/>
-            <circle cx="51" cy="48" r="4" fill="#5E7E8C"/>
-          </svg>
+        <div class="feature-top">
+          <div class="art"><img src="assets/img/features/card-plan.png" alt="" width="214" height="105" loading="lazy"></div>
+          <h3>おでかけプラン</h3>
         </div>
-        <h3>おでかけプラン</h3>
         <p>行き先を並べるだけで順番を組み立て、そのまま Google マップのルート案内に渡せます。プランは家族や友人に共有できます。</p>
       </div>
     </div>

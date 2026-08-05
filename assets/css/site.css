@@ -155,31 +155,82 @@ h2 { font-size: clamp(24px, 3.6vw, 32px); line-height: 1.45; font-weight: 700; }
 }
 
 /* ---------- feature grid ----------
-   カード(枠+影)をやめ、イラストを主役にした軽い面で並べる。
-   イラストは外部画像ではなくインライン SVG —— ブランド配色をそのまま使え、
-   拡大しても崩れず、読み込みも増えないため。 */
+   イラストは書き出し済みの PNG。配布時は白ベタ背景(透過なし)で、そのまま置くと
+   紙色の面に白い矩形が出るため、白を抜いた透過 PNG に変換して配置している。
+   素材は等倍サイズしかないため、拡大でぼやけないよう表示は実寸を上限にする
+   (HTML 側の width / height 属性が上限値)。 */
 .features-head {
-  display: grid; grid-template-columns: 0.9fr 1.1fr;
+  display: grid; grid-template-columns: minmax(190px, 0.72fr) 1.28fr;
   gap: 32px; align-items: center;
 }
-.features-scene { width: 100%; max-width: 520px; margin-left: auto; }
+
+/* 保存 → 取り込み → 整理 → 活用 の流れ。
+   円の直径 --d だけで全体が決まるようにして、画面幅の調整を 1 行で済ませる。
+   矢印は「円と同じ高さの箱」に背景として敷くので、位置合わせの計算が要らない。 */
+.flow {
+  --d: 112px;
+  list-style: none; max-width: 100%;
+  display: flex; align-items: flex-start; justify-content: flex-end;
+}
+.flow li { display: flex; align-items: flex-start; }
+.flow li + li::before {
+  content: ""; flex: 0 0 auto;
+  width: calc(var(--d) * 0.38); height: var(--d);
+  margin-inline: calc(var(--d) * 0.09);
+  background: url("../img/features/flow-arrow.png") center / contain no-repeat;
+}
+.flow-inner {
+  width: var(--d);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.flow-art {
+  width: var(--d); height: var(--d); border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 6px 18px rgba(33, 36, 41, 0.06);
+  display: flex; align-items: center; justify-content: center;
+}
+/* 素材ごとに縦横比が違うので、円の内側に収まる比率で頭打ちにして大きさを揃える */
+.flow-art img { width: auto; max-width: 72%; max-height: 72%; }
+.flow-label { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; }
 
 .features {
-  margin-top: 52px;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 34px;
+  margin-top: 46px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px;
+  /* 行ごとではなく 6 枚すべてを同じ高さにそろえる(いちばん背の高い
+     カードに合わせて、余りはカード内の下側の余白として吸収する) */
+  grid-auto-rows: 1fr;
 }
-.feature { background: none; border: 0; padding: 0; }
-.feature .art { width: 76px; height: 76px; margin: 0 auto 18px; }
-.feature .art svg { width: 100%; height: 100%; }
-.feature h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 8px; }
+.feature {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 26px 26px 28px;
+  display: flex; flex-direction: column;
+}
+/* イラストは見出しの横に置く。素材ごとに縦横比が違う(横長のタグから
+   ほぼ正方形の地図まで)ので、幅だけ固定して高さは成り行きにし、
+   min-height でイラストの一番高いものを受けて本文の開始位置をそろえる。 */
+.feature-top {
+  display: flex; align-items: center; gap: 14px;
+  min-height: 104px; margin-bottom: 12px;
+}
+/* 132px は素材の最小幅(card-organize の 135px)より内側。
+   ここを超えると拡大になってぼやけるので上げない。 */
+.feature .art { flex: 0 0 132px; }
+.feature .art img { width: 100%; height: auto; }
+.feature h3 { font-size: 16.5px; font-weight: 700; }
 .feature p { font-size: 14px; color: var(--ink-2); }
 /* 詳細ページがあるのは取り込みガイドだけ。リンクになっている枠だけ見た目を変える */
-.feature-link { display: block; text-decoration: none; color: inherit; }
-.feature-link .art { transition: transform 0.15s; }
-.feature-link:hover .art { transform: translateY(-3px); }
+.feature-link {
+  text-decoration: none; color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.feature-link:hover {
+  border-color: #CDEBD9; transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(6, 121, 82, 0.10);
+}
 .feature-link:hover .more { text-decoration: underline; }
+/* リンクの行だけカード下端に寄せて、他のカードと本文の始まりをそろえる */
 .feature-link .more {
-  display: inline-block; margin-top: 12px;
+  margin-top: auto; padding-top: 12px;
   color: var(--green-dark); font-size: 13.5px; font-weight: 700;
 }
 
@@ -391,9 +442,8 @@ details p { margin-top: 12px; font-size: 14.5px; color: var(--ink-2); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 1000px) {
-  .features { grid-template-columns: repeat(2, 1fr); }
-  .features-head { grid-template-columns: 1fr; gap: 20px; }
-  .features-scene { margin-inline: auto; max-width: 460px; }
+  .features-head { grid-template-columns: 1fr; gap: 26px; }
+  .flow { justify-content: center; }
 }
 
 @media (max-width: 820px) {
@@ -402,12 +452,22 @@ details p { margin-top: 12px; font-size: 14.5px; color: var(--ink-2); }
   .hero .wrap { padding: 0 14px; }
   .hero .poster { max-height: none; border-radius: 16px; }
   .site-nav a:not(.cta) { display: none; }
-  /* 1列にすると縦に伸びすぎるので、モバイルはイラストを小さくして2列を保つ */
-  .features { grid-template-columns: repeat(2, 1fr); gap: 34px 20px; }
-  .feature .art { width: 58px; height: 58px; margin-bottom: 12px; }
-  .feature h3 { font-size: 15px; }
-  .feature p { font-size: 13px; }
-  .features-scene { max-width: 340px; }
+  /* カードにしてからは、2 列だと 1 行 7〜8 文字で本文が細切れになる。
+     1 列のほうが行数が減り、結果として縦も短くなる。 */
+  /* 1 列では横に並ぶ相手がいないので、高さをそろえると余白が空くだけ */
+  .features { grid-template-columns: 1fr; gap: 14px; grid-auto-rows: auto; }
+  .feature { padding: 20px 20px 22px; }
+  /* 1 列では横に比べる相手がいないので、本文の開始位置をそろえる必要がない。
+     min-height を外して、イラストが低いカードの余白を作らない。 */
+  .feature-top { min-height: 0; gap: 12px; margin-bottom: 10px; }
+  .feature .art { flex-basis: 92px; }
+  .feature h3 { font-size: 15.5px; }
+  .feature p { font-size: 13.5px; }
+  /* 流れは 4 つ 1 行のまま見せたいので、円の直径を画面幅に追従させる
+     (全体幅 = --d * 5.68。375px 幅でちょうど本文カラムに収まる) */
+  .flow { --d: clamp(56px, 15vw, 78px); }
+  .flow-inner { gap: 8px; }
+  .flow-label { font-size: clamp(10.5px, 2.9vw, 12px); white-space: nowrap; }
   .cards { grid-template-columns: 1fr; }
   .plans { grid-template-columns: 1fr; gap: 30px; }
   .guide-band .wrap { grid-template-columns: 1fr; }
