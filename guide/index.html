@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google マップの保存リストを MapForMe に取り込む方法（画像つきガイド）</title>
+<meta name="description" content="Google マップに保存した「行きたい場所」を MapForMe にまとめて取り込む手順を、実際の画面の画像つきで解説。初回だけの作業で、5分＋待ち時間です。">
+<link rel="icon" href="../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css?v=2">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../"><img src="../assets/img/icon.png" alt="" width="34" height="34">MapForMe</a>
+    <nav class="site-nav">
+      <a href="../#features">できること</a>
+      <a href="../#pricing">料金</a>
+      <a href="../#faq">よくある質問</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<div class="page-hero">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="../">MapForMe</a> / 取り込みガイド</p>
+    <p class="kicker">IMPORT GUIDE</p>
+    <h1>Google マップの保存リストを<br>MapForMe に取り込む</h1>
+    <p class="section-lead">Google マップのデータはアプリからは書き出せません。ブラウザで Google の「データエクスポート」を使います。<strong>初回だけの作業で、5分＋待ち時間</strong>です。</p>
+  </div>
+</div>
+
+<section class="gstep" id="step1">
+  <div class="wrap">
+    <div>
+      <p class="gstep-label">STEP 1 / 4</p>
+      <h2>Google に申請する</h2>
+      <ol>
+        <li><span class="n">①</span><span><a href="https://takeout.google.com/settings/takeout/custom/local_actions,save?hl=ja" rel="noopener">Google のページ</a>を開いてログインする<br><small style="color:var(--ink-3)">※ このリンクは、取り込みに必要な2つのデータ（マップ・保存済み）が選択済みの状態で開きます</small></span></li>
+        <li><span class="n">②</span><span>下にスクロールし、「次のステップ」をタップ</span></li>
+        <li><span class="n">③</span><span>下にスクロールし、「エクスポートを作成」をタップ</span></li>
+      </ol>
+      <div class="note">アプリからも同じ手順に進めます: MapForMe の「設定」→「データの取り込み方」を開くと、この4ステップを画面の中で案内します。</div>
+    </div>
+    <div class="shot"><img src="../assets/img/guide/takeout-step1.png" alt="Google データエクスポートの画面。「次のステップ」と「エクスポートを作成」の位置" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="gstep" id="step2">
+  <div class="wrap">
+    <div>
+      <p class="gstep-label">STEP 2 / 4</p>
+      <h2>メールを待つ</h2>
+      <ol>
+        <li><span class="n">①</span><span>Google からメールを待つ（数分〜数時間）</span></li>
+        <li><span class="n">②</span><span>メールが届く</span></li>
+        <li><span class="n">③</span><span>「Google データ エクスポートのリクエストを管理する」をタップ</span></li>
+      </ol>
+      <div class="note">待ち時間はデータ量しだいです。保存リストだけなら<strong>数分で届くことがほとんど</strong>。届くまでアプリを閉じていて大丈夫です。</div>
+    </div>
+    <div class="shot"><img src="../assets/img/guide/takeout-step2.png" alt="Google から届くメール。「Google データ エクスポートのリクエストを管理する」ボタンの位置" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="gstep" id="step3">
+  <div class="wrap">
+    <div>
+      <p class="gstep-label">STEP 3 / 4</p>
+      <h2>ファイルをダウンロード</h2>
+      <ol>
+        <li><span class="n">①</span><span>「ダウンロード」をタップ</span></li>
+        <li><span class="n">②</span><span>ファイルが保存される</span></li>
+      </ol>
+    </div>
+    <div class="shot"><img src="../assets/img/guide/takeout-step3.png" alt="エクスポート完了画面。「ダウンロード」ボタンの位置" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="gstep" id="step4">
+  <div class="wrap">
+    <div>
+      <p class="gstep-label">STEP 4 / 4</p>
+      <h2>アプリに取り込む</h2>
+      <ol>
+        <li><span class="n">①</span><span>MapForMe の「設定」→「データの取り込み方」からガイドを進み、「ファイルを選ぶ」をタップ</span></li>
+        <li><span class="n">②</span><span>ダウンロードされた「takeout〜」から始まるファイルをタップ</span></li>
+        <li><span class="n">③</span><span>データ取り込みが開始されます。これで完了です。</span></li>
+      </ol>
+      <div class="note">※ どこに保存されたか分からないときは、ファイル選択の<strong>「検索」に takeout</strong> と入力すると、保存場所をまたいで見つけられます。</div>
+      <div class="note">取り込むとき、リストごとに「リスト / タグ / スポットのみ / 取り込まない」を選べます。<strong>すでに MapForMe で整理した内容は消えません。</strong>何度やり直しても大丈夫です。</div>
+    </div>
+    <div class="shot"><img src="../assets/img/guide/takeout-step4.png" alt="ファイル選択画面。「takeout-」から始まるファイルを選ぶ" loading="lazy"></div>
+  </div>
+</section>
+
+<section class="section-alt" id="others">
+  <div class="wrap">
+    <p class="kicker">ADVANCED</p>
+    <h2>他の人のリストを取り込む</h2>
+    <p class="section-lead"><strong>フォローしているリスト（自分が作っていないもの）はエクスポートに含まれません。</strong>やり方は3つ。自分に合うものを選んでください。</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">A</span>
+        <h3>持ち主に書き出してもらう</h3>
+        <p class="who">まとめて全部ほしい人向け</p>
+        <p>リストの持ち主に上の手順1〜4をやってもらい、ファイルを LINE やメールで送ってもらう → あなたの MapForMe でインポート。数十件あるリストならこれが一番早い。</p>
+      </div>
+      <div class="card">
+        <span class="tag">B</span>
+        <h3>気になる場所だけ共有で送る</h3>
+        <p class="who">少しだけ拾いたい人向け</p>
+        <p>Google マップでその場所を開く → 「共有」→ MapForMe を選ぶ。1件ずつだけど、その場で自分のタグを付けられる。</p>
+      </div>
+      <div class="card">
+        <span class="tag">C</span>
+        <h3>自分のリストに保存し直す</h3>
+        <p class="who">Google マップ側も整理したい人向け</p>
+        <p>相手のリストの場所を開いて、自分のリスト（例: 行ってみたい）に保存。次回のエクスポートから自分のデータとして取り込める。</p>
+      </div>
+    </div>
+    <div class="note" style="max-width:760px">自分がオーナーか分からないとき: <strong>リストを開いて場所の追加・削除ができれば、それはあなたのリストです。</strong></div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>あとは、勝手に仕分け。</h2>
+    <p class="section-lead" style="margin-inline:auto">取り込んだ場所には、地域とジャンルのタグが自動で付きます。</p>
+    <div class="hero-actions">
+      <span class="btn btn-soon">App Store で近日公開<small>（現在審査中）</small></span>
+      <a class="btn btn-ghost" href="../">MapForMe について</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="../">トップ</a>
+      <a href="https://kogiryu.github.io/mapforme-legal/privacy">プライバシーポリシー</a>
+      <a href="mailto:melkito.works@gmail.com">お問い合わせ</a>
+    </div>
+    <p>© 2026 melkito</p>
+    <p class="trademark">Google マップは Google LLC の商標です。本アプリおよび本サイトは Google が提供・承認するものではありません。</p>
+  </div>
+</footer>
+
+</body>
+</html>
