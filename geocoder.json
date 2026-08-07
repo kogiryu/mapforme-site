@@ -1,0 +1,12 @@
+{
+  "_note": "MapForMe app runtime config for the OSM Nominatim fallback. Served to the app over https; contains no user data and the app sends no identifiers when fetching it. See src/services/geo/osmGeocoderConfig.ts in the app repo.",
+  "_why": "The OSMF Nominatim usage policy requires apps distributed to end users to be able to switch the service on request WITHOUT a software update. This file is that switch.",
+  "_fields": {
+    "enabled": "false stops the OSM fallback entirely (kill switch). Spots are simply left without coordinates.",
+    "endpoint": "Nominatim-compatible search endpoint. Must be https. Point this at a self-hosted instance to move off the public one.",
+    "minIntervalMs": "Minimum interval between requests. The app clamps this to at least 1000ms - it can only ever be made slower, never faster."
+  },
+  "enabled": true,
+  "endpoint": "https://nominatim.openstreetmap.org/search",
+  "minIntervalMs": 1000
+}
